@@ -8,17 +8,18 @@
 
     <com.yc.fragmentfactorydemo.MyView
         android:id="@+id/mImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
          />
 
     <com.yc.fragmentfactorydemo.SongTextView
         android:layout_width="match_parent"
         android:id="@+id/stv"
         android:layout_centerInParent="true"
-        android:layout_height="500dp" />
+        android:layout_height="100dp" />
     <Button
         android:id="@+id/btn"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </RelativeLayout>

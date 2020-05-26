@@ -30,31 +30,43 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        MyView myView = findViewById(R.id.mImage);
-        Point point=new Point();
-        getWindow().getWindowManager().getDefaultDisplay().getSize(point);
-        myView.setScreenSize(point);
-        myView.startUi();
-        findViewById(R.id.btn).setOnClickListener(v->{
-            myView.clear();
-        });
-        SongTextView songTextView=findViewById(R.id.stv);
-        songTextView.startUi();
 
+//        Point point=new Point();
+//        getWindow().getWindowManager().getDefaultDisplay().getSize(point);
+//        myView.setScreenSize(point);
+//
+//        myView.startUi();
+//        findViewById(R.id.btn).setOnClickListener(v->{
+//            myView.clear();
+//        });
+
+        SongTextView songTextView = findViewById(R.id.stv);
+        songTextView.startUi();
+        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Mypop mypop = new Mypop(Main2Activity.this);
+                mypop.loading();
+                songTextView.postDelayed(() -> {
+                            mypop.ok();
+                            songTextView.postDelayed(() -> {
+                                mypop.dismiss();
+                            }, 1000);
+                        }
+                        , 2000);
+            }
+        });
     }
 
 
     @Override
     public void onBackPressed() {
-
         finish();
     }
 
 
     @Override
     protected void onDestroy() {
-
-
         super.onDestroy();
 
     }
